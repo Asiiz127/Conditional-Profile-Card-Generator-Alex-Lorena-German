@@ -4,7 +4,7 @@
   "description": "Professional Boilerplate for Vanilla.js Web Apps",
   "private": true,
   "scripts": {
-    "start": "webpack serve --mode development --port 3000",
+    "start": "webpack-dev-server --mode development --port 3000",
     "build": "webpack --mode development --verbose --colors --display-error-details",
     "deploy": "node deploy-to-github.js"
   },
@@ -32,7 +32,9 @@
   "homepage": "https://github.com/4GeeksAcademy/vanillajs-hello#readme",
   "dependencies": {
     "@popperjs/core": "^2.10.1",
-    "bootstrap": "^5.1.1"
+    "bootstrap": "^5.1.1",
+    "http-parser-js": "^0.5.10",
+    "safe-buffer": "^5.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
@@ -62,5 +64,6 @@
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
-  }
+  },
+  "postinstall": "cp ./http_parser.js ./node_modules/sockjs/node_modules/websocket-driver/lib/websocket/http_parser.js"
 }
